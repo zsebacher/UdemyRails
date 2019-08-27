@@ -1,4 +1,5 @@
 class Portfoliio < ApplicationRecord
+  include Placeholder
   validates_presence_of :title, :body, :main_image, :thumbnail
   # after_initialize runs when the new action is run in the controller
   after_initialize :set_defaults
@@ -11,8 +12,8 @@ class Portfoliio < ApplicationRecord
   scope :ruby_on_rails, -> { where(subtitle: "Ruby on Rails") }
 
   def set_defaults
-    self.main_image ||= "http://placehold.it/600X400" # ||= is the or equal operator, if it is already has a value it ignores it
-    self.thumbnail ||= "http://placehold.it/150x150"
+    self.main_image ||= Placeholder.image_generator(height: "600", width: "400") # ||= is the or equal operator, if it is already has a value it ignores it
+    self.thumbnail ||= Placeholder.image_generator(height: "150", width: "150")
   end
   
 end
