@@ -1,5 +1,6 @@
 class Portfoliio < ApplicationRecord
   include Placeholder
+  has_many :technologies
   validates_presence_of :title, :body, :main_image, :thumbnail
   # after_initialize runs when the new action is run in the controller
   after_initialize :set_defaults
