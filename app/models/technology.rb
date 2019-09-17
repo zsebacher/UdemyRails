@@ -1,3 +1,3 @@
 class Technology < ApplicationRecord
-  belongs_to :portfoliio
+  belongs_to :portfolio
 end
