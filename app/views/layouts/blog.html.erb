@@ -11,15 +11,22 @@
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
 
-    <%= login_helper %>
+    <%= render "shared/blog_nav" %>
 
-    <%= yield %>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 blog-main">
+          <h3 id="blog-page-logo" class="pb-4 mb-4 font-italic border-bottom">
+            But I'm Not A Developer
+          </h3>
+        </div>
 
-    <%= render "shared/nav", location: 'bottom' %>
+        <%= yield %>
 
-    <%= source_helper("blog") %>
+        <%= source_helper("blog") %>
+
+      </div>
+    </div>
   </body>
 </html>
