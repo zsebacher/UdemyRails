@@ -3,30 +3,24 @@
   <head>
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
-
     <meta name="keywords" content="<%= @seo_keywords %>" />
-
     <%= stylesheet_link_tag    'blogs', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-
     <%= render "shared/blog_nav" %>
-
     <div class="container">
       <div class="row">
-        <div class="col-md-8 blog-main">
-          <h3 id="blog-page-logo" class="pb-4 mb-4 font-italic border-bottom">
-            But I'm Not A Developer
-          </h3>
-        </div>
+        
+        <%= render 'shared/blog_header' %>
 
         <%= yield %>
 
         <%= source_helper("blog") %>
 
       </div>
+      <a href="#" class="text-center">Back to Top</a>
+      <%= render 'shared/footer' %>
     </div>
   </body>
 </html>

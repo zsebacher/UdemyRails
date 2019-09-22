@@ -1,5 +1,19 @@
-<h1>Portfolio Items</h1>
+<section class="jumbotron text-center">
+    <div class="container">
+    <h1 class="jumbotron-heading">My Portfolio</h1>
+    <p class="lead text-muted">Various projects I have worked on</p>
+    </div>
+</section>
 
-<%= link_to "Create New Item", new_portfolio_url if logged_in?(:site_admin) %>
-
-<%= render partial: 'portfolio_item', collection: @portfolio_items %>
+<% if logged_in?(:site_admin) %>
+    <div class="text-center">
+        <%= link_to "Create New Item", new_portfolio_url, class: "btn btn-info" %>
+    </div>
+<% end %>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row">
+           <%= render partial: 'portfolio_item', collection: @portfolio_items %>
+        </div>
+    </div>
+</div>
